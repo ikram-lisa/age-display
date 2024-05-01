@@ -1,0 +1,161 @@
+@use "./base/variable" as *;
+@use "./base/font.scss" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(196, 196, 196, 0.5),
+      rgba(161, 161, 161, 0.5)
+    ),
+    url("../images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  display: grid;
+  place-items: center;
+}
+.calculator {
+  width: 40%;
+  min-width: 480px;
+  max-width: 500px;
+  height: 480px;
+  background-color: white;
+  border-radius: 10px 10px 140px 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  #form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    gap: 16px;
+    .formInput {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: $smokeyGrey;
+      }
+      input[type="text"] {
+        border: 1px solid rgb(209, 209, 209);
+        border-radius: 3px;
+        padding: 7px 5px;
+        outline: none;
+        font-weight: bold;
+        font-size: 15px;
+        width: 90px;
+      }
+      .error,
+      .error-message {
+        label {
+          color: $lightRed;
+        }
+        input[type="text"]:invalid {
+          border: 1px solid $lightRed;
+          color: $lightRed;
+        }
+        input[type="text"] {
+          border: 1px solid $lightRed;
+          color: $lightRed;
+        }
+      }
+      .active {
+        input[type="text"]:valid {
+          border: 1px solid $purple;
+          color: $purple;
+        }
+        input[type="text"] {
+          border: 1px solid $purple;
+          color: $purple;
+        }
+      }
+    }
+    .submit {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $purple;
+      color: white;
+      border: none;
+      padding: 10px;
+      position: absolute;
+      top: 20%;
+      right: 10%;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: darken($purple, 10%);
+      }
+      img {
+        width: 25px;
+        height: 25px;
+        display: block;
+        min-width: 30px;
+      }
+    }
+  }
+
+  .separator {
+    width: 90%;
+    height: 1px;
+    background-color: rgb(209, 209, 209);
+    border: none;
+  }
+  .result {
+    margin-top: 20px;
+    .years,
+    .month,
+    .days {
+      font-size: 50px;
+      color: #252525;
+      font-weight: 800;
+      span {
+        color: $purple;
+      }
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  body {
+    font-size: 24px; // Smaller font size for smaller devices
+  }
+  .calculator {
+    padding: 15px; // Less padding for tighter spaces
+  }
+  .submit {
+    top: 20%; // Adjusting position to fit smaller screens
+    right: 5%; // More margin space
+  }
+}
+@media (max-width: 375px) {
+}
+
+@media (max-width: 768px) {
+  .calculator {
+    width: 80%; // Increasing width on smaller screens
+    min-width: 300px; // Adjusted min-width
+  }
+}
+@media (max-width: 1440px) {
+}
