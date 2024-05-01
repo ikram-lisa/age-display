@@ -65,12 +65,10 @@ body {
           border: 1px solid $purple;
           color: $purple;
         }
-        &:invalid:not(.is-touched) {
-          border: 1px solid rgb(202, 202, 202); // Hide the invalid styling by default
-        }
-
-        &.is-touched:invalid {
-          border: 1px solid $lightRed; // Show error styling only after input is touched
+        &:invalid {
+          border: 1px solid $lightRed;
+          color: $lightRed;
+          display: none;
         }
       }
 

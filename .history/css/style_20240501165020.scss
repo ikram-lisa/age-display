@@ -66,7 +66,7 @@ body {
           color: $purple;
         }
         &:invalid:not(.is-touched) {
-          border: 1px solid rgb(202, 202, 202); // Hide the invalid styling by default
+          border: 1px solid transparent; // Hide the invalid styling by default
         }
 
         &.is-touched:invalid {
